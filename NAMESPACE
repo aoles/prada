@@ -1,0 +1,54 @@
+useDynLib("prada")
+
+importClassesFrom(Biobase, AnnotatedDataFrame)
+importClassesFrom(methods, ANY, character, data.frame, environment,
+                  "function", integer, list, logical, matrix, missing,
+                  numeric)
+importMethodsFrom(Biobase, description, "description<-", exprs,
+                  "exprs<-", pData, "pData<-", phenoData,
+                  "phenoData<-", sampleNames, varLabels, varMetadata)
+importMethodsFrom(methods, show)
+importFrom(BiocGenerics, colnames, nrow, ncol)
+importFrom(Biobase, listLen, multiassign, read.AnnotatedDataFrame)
+importFrom(graphics, barplot, locator, par, plot.new, points,
+           polygon, segments, smoothScatter, title)
+importFrom(grDevices, colorRampPalette, densCols, dev.cur, dev.off)
+importFrom(grid, convertHeight, convertWidth, convertX, convertY,
+           current.transform, current.viewport, current.vpTree, gpar,
+           grid.circle, grid.lines, grid.polygon, grid.rect, grid.text,
+           grid.yaxis, popViewport, pushViewport, unit, viewport)
+importFrom(MASS, cov.rob)
+importFrom(methods, is, new, validObject)
+importFrom(RColorBrewer, brewer.pal)
+importFrom(rrcov, CovMcd)
+importFrom(stats4, plot)
+importFrom(utils, assignInNamespace, getFromNamespace, read.table,
+           select.list)
+
+
+export("analysePlate", "as.all",
+       "barploterrbar", "combineFrames",
+       "csApply", "fitNorm2", "getPradaPar",
+       "plotNorm2", "devDims",
+       "plotPlate", "readCytoSet",
+       "readFCS", "read.fcs",
+       "removeCensored", "setPradaPars",
+       "thresholds", "threePanelPlot",
+       "devRes", ".drawCircle", ".drawPie",
+       "vpLocation", "touchFCS", "combineGates",
+       "progress", "updateProgress", "killProgress",
+       "getAlphaNumeric")
+
+
+S3method("$", "cytoFrame")
+S3method("range", "cytoFrame")
+exportClasses("cytoFrame", "cytoSet", "gate", "gateSet")
+exportMethods("colnames", "colnames<-",
+              "description", "description<-",
+              "exprs", "exprs<-",
+              "length", "[", "[[", "[[<-",
+              "pData", "phenoData", "phenoData<-",
+              "show", "plot", "gate", "applyGate",
+              "drawGate", "gate<-", "names", "names<-",
+              "as.gateSet", "nrow", "ncol", "appendGates", "lines",
+              "split")
